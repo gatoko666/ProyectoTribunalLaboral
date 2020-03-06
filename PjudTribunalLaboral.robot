@@ -12,6 +12,7 @@ Library           DateTime
 ${Url}            https://laboral.pjud.cl/    # Direccion de la pagina a realizar las consultas
 ${PathExcel}      resultado/Nombres.xls    #Ubicacion de archivo Excel a consultar.
 ${NombreHojaExcel}    nombres    #Nombre de la hoja excel que se consulta.
+${ContadorTribunalOrigen}    0
 
 *** Test Cases ***
 Test1
@@ -21,11 +22,17 @@ Test1
     Sleep    15s
     Click Element    //td[contains(@id,'tdCuatro')]
     Sleep    15s
-    clipboard.Copy    Chacón
-    Input Text    //input[contains(@name,'NOM_Consulta')]    diego
-    Input Text    //input[contains(@name,'APE_Paterno')]    medel
+    clipboard.Copy    CONTRERAS
+    Input Text    //input[contains(@name,'NOM_Consulta')]    GASPAR
+    Input Text    //input[contains(@name,'APE_Paterno')]    SALAS
     Click Element    //input[contains(@name,'APE_Materno')]
     Press Keys    none    CTRL+V
-    Select From List By Value    name:COD_TribunalSinTodos    0
+    Select From List By Value    name:COD_TribunalSinTodos    1349
     Click Element    //img[@onclick='document.AtPublicoPpalForm.irAccionAtPublico.click();']
     Sleep    15s
+    Close Browser
+
+*** Keywords ***
+AumentadorDeTribunalOrigen
+    ${temp2}    Evaluate    ${ContadorTribunalOrigen}+1
+    Set Test Variable    ${ContadorTribunalOrigen}    ${temp2}
