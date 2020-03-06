@@ -13,6 +13,7 @@ ${Url}            https://laboral.pjud.cl/    # Direccion de la pagina a realiza
 ${PathExcel}      resultado/Nombres.xls    #Ubicacion de archivo Excel a consultar.
 ${NombreHojaExcel}    nombres    #Nombre de la hoja excel que se consulta.
 ${ContadorTribunalOrigen}    0
+@{TotalJuzgado}    1    1    2    2    2    2    2    2    2
 
 *** Test Cases ***
 Test1
